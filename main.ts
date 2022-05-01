@@ -1,12 +1,137 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 1) {
+        if (camel.y == 165) {
+            camel.setPosition(camel.x, 119)
+        } else if (camel.y == 119) {
+            camel.setPosition(camel.x, 56)
+        } else {
+        	
+        }
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
 function screen_2 () {
 	
 }
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 1) {
+        if (camel.y == 56) {
+            camel.setPosition(camel.x, 119)
+        } else if (camel.y == 119) {
+            camel.setPosition(camel.x, 165)
+        } else {
+        	
+        }
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+})
 function screen_1 () {
-	
+    scene.cameraFollowSprite(camel)
+    camel.setStayInScreen(true)
+    camel.setPosition(120, 56)
+    animation.runImageAnimation(
+    camel,
+    assets.animation`CamelGif`,
+    300,
+    true
+    )
+    scroller.setBackgroundScrollOffset(0, -19)
+    snake = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    snake2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    snake3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    snake.setPosition(165, 0)
+    snake2.setPosition(165, 0)
+    snake3.setPosition(165, 0)
+    animation.runImageAnimation(
+    snake,
+    assets.animation`myAnim0`,
+    200,
+    true
+    )
+    animation.runImageAnimation(
+    snake2,
+    assets.animation`myAnim0`,
+    200,
+    true
+    )
+    animation.runImageAnimation(
+    snake3,
+    assets.animation`myAnim0`,
+    200,
+    true
+    )
+    snake.setStayInScreen(false)
+    snake2.setStayInScreen(false)
+    snake3.setStayInScreen(false)
 }
+let random = 0
+let snake3: Sprite = null
+let snake2: Sprite = null
+let snake: Sprite = null
 let camel: Sprite = null
 let mySprite: Sprite = null
-let game_mode = 9
+let game_mode = 0
+game_mode = 1
 if (game_mode == 0) {
     scene.centerCameraAt(100, 100)
     scene.setBackgroundImage(img`
@@ -299,8 +424,38 @@ if (game_mode == 0) {
         4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
         4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
         `)
+    tiles.setCurrentTilemap(tilemap`level1`)
+    screen_1()
 } else if (game_mode == 2) {
 	
 } else {
 	
 }
+forever(function () {
+    if (game_mode == 1) {
+        random = randint(1, 3)
+        if (random == 1) {
+            snake.setPosition(261, 56)
+            snake.vx = -55
+            snake2.setPosition(261, 165)
+            snake2.vx = -40
+            snake3.setPosition(261, 119)
+            snake3.vx = -70
+        } else if (random == 2) {
+            snake.setPosition(261, 119)
+            snake.vx = -55
+            snake2.setPosition(261, 56)
+            snake2.vx = -40
+            snake3.setPosition(261, 165)
+            snake3.vx = -70
+        } else {
+            snake.setPosition(261, 165)
+            snake.vx = -55
+            snake2.setPosition(261, 119)
+            snake2.vx = -40
+            snake3.setPosition(261, 56)
+            snake3.vx = -70
+        }
+        pause(6000)
+    }
+})
