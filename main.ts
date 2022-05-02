@@ -1,39 +1,3 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (game_mode == 1) {
-        if (camel.y == 165) {
-            camel.setPosition(camel.x, 119)
-        } else if (camel.y == 119) {
-            camel.setPosition(camel.x, 56)
-        } else {
-        	
-        }
-    } else if (false) {
-    	
-    } else {
-    	
-    }
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
-function screen_2 () {
-	
-}
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (game_mode == 1) {
-        if (camel.y == 56) {
-            camel.setPosition(camel.x, 119)
-        } else if (camel.y == 119) {
-            camel.setPosition(camel.x, 165)
-        } else {
-        	
-        }
-    } else if (false) {
-    	
-    } else {
-    	
-    }
-})
 function screen_1 () {
     scene.cameraFollowSprite(camel)
     camel.setStayInScreen(true)
@@ -127,7 +91,235 @@ function screen_1 () {
     snake2.setStayInScreen(false)
     snake3.setStayInScreen(false)
 }
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 1) {
+        if (camel.y == 165) {
+            camel.setPosition(camel.x, 119)
+        } else if (camel.y == 119) {
+            camel.setPosition(camel.x, 56)
+        }
+    } else if (game_mode == 2) {
+        if (hero_saitama.vy == 0) {
+            hero_saitama.vy = randint(-175, -190)
+        }
+    } else {
+    	
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    console.log(hero_saitama.x)
+    console.log(hero_saitama.y)
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 2) {
+        animation.stopAnimation(animation.AnimationTypes.All, hero_saitama)
+        animation.runImageAnimation(
+        hero_saitama,
+        assets.animation`myAnim4`,
+        200,
+        true
+        )
+    }
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    if (game_mode == 2) {
+        animation.stopAnimation(animation.AnimationTypes.All, hero_saitama)
+        animation.runImageAnimation(
+        hero_saitama,
+        assets.animation`myAnim2`,
+        200,
+        true
+        )
+    }
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    if (game_mode == 2) {
+        animation.stopAnimation(animation.AnimationTypes.All, hero_saitama)
+        animation.runImageAnimation(
+        hero_saitama,
+        assets.animation`myAnim2`,
+        200,
+        true
+        )
+    }
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 2) {
+        animation.stopAnimation(animation.AnimationTypes.All, hero_saitama)
+        animation.runImageAnimation(
+        hero_saitama,
+        assets.animation`myAnim3`,
+        200,
+        true
+        )
+    }
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game_mode == 1) {
+        if (camel.y == 56) {
+            camel.setPosition(camel.x, 119)
+        } else if (camel.y == 119) {
+            camel.setPosition(camel.x, 165)
+        } else {
+        	
+        }
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+})
+function screen_2 () {
+    animals_met = 0
+    animal_1 = sprites.create(img`
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ................................
+        ...................ccccc........
+        ..................cbbbbbcc......
+        .................fbbbbbbddcc....
+        .................fbffbbddbbbc...
+        ................ffbffbbdffff....
+        ................fbbbbbbbf.......
+        ...............ffbbbbbbbf.......
+        .............fffbbbbbbbbff......
+        ...........ccdd366bbbbbb6f......
+        ..........cddddd666bbbb66cc.....
+        .........cddddddd36666663dc.....
+        ........ccbddddddbd3333dddc.....
+        .......cddbbdddddbddddddddc.....
+        ......cbdddbbdddbbddddddddc.....
+        ...cccbbddddbbdbbddddddddc......
+        ..ccbbbcccccbbbbddddddddcc......
+        ..ffffccbddddddddddddddcc.......
+        ......fffbbddddbccddbccc........
+        .........fffbbc333bb333c........
+        ...........fff3cc33cc33c........
+        `, SpriteKind.Player)
+    animal_1.setPosition(24, 200)
+    scaling.scaleToPixels(animal_1, 22, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+    animal_2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    animal_3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    animal_5 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    animal_1 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    hero_saitama = sprites.create(img`
+        ........................
+        .....ffff...............
+        ...fff22fff.............
+        ..fff2222fff............
+        .fffeeeeeefff...........
+        .ffe222222eef...........
+        .fe2ffffff2ef...........
+        .ffffeeeeffff...........
+        ffefbf44fbfeff..........
+        fee41fddf14eef..........
+        .ffffdddddeef...........
+        fddddf444eef............
+        fbbbbf2222f4e...........
+        fbbbbf2222fd4...........
+        .fccf45544f44...........
+        ..ffffffff..............
+        ....ff..ff..............
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Player)
+    door = sprites.create(assets.image`Door`, SpriteKind.Player)
+    door.setPosition(943, 340)
+    scaling.scaleToPixels(door, 32, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+    controller.moveSprite(hero_saitama, 50, 0)
+    scene.cameraFollowSprite(hero_saitama)
+    hero_saitama.ay = 350
+}
 let random = 0
+let door: Sprite = null
+let animal_5: Sprite = null
+let animal_3: Sprite = null
+let animal_2: Sprite = null
+let animal_1: Sprite = null
+let animals_met = 0
+let hero_saitama: Sprite = null
 let snake3: Sprite = null
 let snake2: Sprite = null
 let snake: Sprite = null
@@ -465,5 +657,15 @@ forever(function () {
             }
             pause(6000)
         }
+    }
+})
+forever(function () {
+    if (game_mode == 2) {
+        music.playMelody("C5 B G B C5 G F E ", 151)
+        music.playMelody("D C D C D E F G ", 318)
+        music.playMelody("D C D C D E F G ", 318)
+        music.playMelody("A - - F - B - F ", 400)
+        music.playMelody("F A E F - B - F ", 400)
+        music.playMelody("F - E F - B - A ", 400)
     }
 })
