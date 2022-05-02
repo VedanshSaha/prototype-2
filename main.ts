@@ -134,7 +134,7 @@ let snake: Sprite = null
 let camel: Sprite = null
 let mySprite: Sprite = null
 let game_mode = 0
-game_mode = 0
+game_mode = 2
 if (game_mode == 0) {
     scene.centerCameraAt(100, 100)
     scene.setBackgroundImage(img`
@@ -433,7 +433,8 @@ if (game_mode == 1) {
     screen_1()
 }
 if (game_mode == 2) {
-	
+    tiles.setCurrentTilemap(tilemap`level2`)
+    screen_2()
 }
 forever(function () {
     if (game_mode == 1) {
