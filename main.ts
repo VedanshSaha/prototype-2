@@ -102,6 +102,9 @@ function screen_1 () {
     snake.setPosition(165, 0)
     snake2.setPosition(165, 0)
     snake3.setPosition(165, 0)
+    scaling.scaleToPixels(snake, 16, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+    scaling.scaleToPixels(snake2, 16, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+    scaling.scaleToPixels(snake3, 16, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     animation.runImageAnimation(
     snake,
     assets.animation`myAnim0`,
@@ -131,7 +134,7 @@ let snake: Sprite = null
 let camel: Sprite = null
 let mySprite: Sprite = null
 let game_mode = 0
-game_mode = 1
+game_mode = 0
 if (game_mode == 0) {
     scene.centerCameraAt(100, 100)
     scene.setBackgroundImage(img`
@@ -283,7 +286,9 @@ if (game_mode == 0) {
     }
     scene.cameraFollowSprite(mySprite)
     mySprite.setPosition(0, 0)
-} else if (game_mode == 1) {
+    game_mode = 1
+}
+if (game_mode == 1) {
     camel = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -426,36 +431,38 @@ if (game_mode == 0) {
         `)
     tiles.setCurrentTilemap(tilemap`level1`)
     screen_1()
-} else if (game_mode == 2) {
-	
-} else {
+}
+if (game_mode == 2) {
 	
 }
 forever(function () {
     if (game_mode == 1) {
-        random = randint(1, 3)
-        if (random == 1) {
-            snake.setPosition(261, 56)
-            snake.vx = -55
-            snake2.setPosition(261, 165)
-            snake2.vx = -40
-            snake3.setPosition(261, 119)
-            snake3.vx = -70
-        } else if (random == 2) {
-            snake.setPosition(261, 119)
-            snake.vx = -55
-            snake2.setPosition(261, 56)
-            snake2.vx = -40
-            snake3.setPosition(261, 165)
-            snake3.vx = -70
-        } else {
-            snake.setPosition(261, 165)
-            snake.vx = -55
-            snake2.setPosition(261, 119)
-            snake2.vx = -40
-            snake3.setPosition(261, 56)
-            snake3.vx = -70
+        pause(5000)
+        while (game_mode == 1) {
+            random = randint(1, 3)
+            if (random == 1) {
+                snake.setPosition(261, 56)
+                snake.vx = -50
+                snake2.setPosition(261, 165)
+                snake2.vx = -35
+                snake3.setPosition(300, 119)
+                snake3.vx = randint(-80, -90)
+            } else if (random == 2) {
+                snake.setPosition(261, 119)
+                snake.vx = -50
+                snake2.setPosition(261, 56)
+                snake2.vx = -35
+                snake3.setPosition(261, 165)
+                snake3.vx = randint(-80, -90)
+            } else {
+                snake.setPosition(261, 165)
+                snake.vx = -50
+                snake2.setPosition(261, 119)
+                snake2.vx = -35
+                snake3.setPosition(261, 56)
+                snake3.vx = randint(-80, -90)
+            }
+            pause(6000)
         }
-        pause(6000)
     }
 })
