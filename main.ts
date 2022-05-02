@@ -1,3 +1,11 @@
+namespace SpriteKind {
+    export const animaal4 = SpriteKind.create()
+    export const animaal5 = SpriteKind.create()
+    export const animaal3 = SpriteKind.create()
+    export const door = SpriteKind.create()
+    export const animal2 = SpriteKind.create()
+    export const animal1 = SpriteKind.create()
+}
 function screen_1 () {
     scene.cameraFollowSprite(camel)
     camel.setStayInScreen(true)
@@ -169,7 +177,20 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
+sprites.onOverlap(SpriteKind.animal1, SpriteKind.Player, function (sprite, otherSprite) {
+    if (touched1 == false) {
+        animal_1.sayText(":)", 2000, true)
+        pause(2000)
+        animal_1.sayText("I am", 2000, true)
+        pause(2000)
+        animal_1.sayText("A", 2000, true)
+        pause(2000)
+        story.spriteSayText(animal_1, "Wood Pigeon", 15, 1, story.TextSpeed.VerySlow)
+        touched1 = true
+    }
+})
 function screen_2 () {
+    touched1 = false
     animals_met = 0
     hero_saitama = sprites.create(img`
         ........................
@@ -230,8 +251,8 @@ function screen_2 () {
         ......fffbbddddbccddbccc........
         .........fffbbc333bb333c........
         ...........fff3cc33cc33c........
-        `, SpriteKind.Player)
-    animal_1.setPosition(24, 200)
+        `, SpriteKind.animal1)
+    animal_1.setPosition(21, 200)
     scaling.scaleToPixels(animal_1, 22, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     animal_2 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -250,7 +271,7 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.animal2)
     animal_3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -268,7 +289,7 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.animaal3)
     animal_5 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -286,7 +307,7 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.animaal5)
     animal_4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -304,8 +325,8 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
-    door = sprites.create(assets.image`Door`, SpriteKind.Player)
+        `, SpriteKind.animaal4)
+    door = sprites.create(assets.image`Door`, SpriteKind.door)
     speed = 0
     door.setPosition(943, 340)
     scaling.scaleToPixels(door, 32, ScaleDirection.Uniformly, ScaleAnchor.Middle)
@@ -320,8 +341,9 @@ let animal_4: Sprite = null
 let animal_5: Sprite = null
 let animal_3: Sprite = null
 let animal_2: Sprite = null
-let animal_1: Sprite = null
 let animals_met = 0
+let animal_1: Sprite = null
+let touched1 = false
 let hero_saitama: Sprite = null
 let snake3: Sprite = null
 let snake2: Sprite = null
@@ -663,8 +685,9 @@ forever(function () {
     }
 })
 forever(function () {
-    animal_1.y = Math.sin(speed) * 0.5 * 5 + 200
-    speed += 0.05
+    animal_1.y = Math.sin(speed) * 0.5 * 5 + 195
+    speed += 0.5
+    pause(90)
 })
 // Wow!
 // Yeah i know i am a musician _vedansh
