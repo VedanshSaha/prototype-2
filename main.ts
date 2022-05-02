@@ -117,6 +117,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     console.log(hero_saitama.x)
     console.log(hero_saitama.y)
+    console.log(animals_met)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (game_mode == 2) {
@@ -185,7 +186,8 @@ sprites.onOverlap(SpriteKind.animal1, SpriteKind.Player, function (sprite, other
         pause(2000)
         animal_1.sayText("A", 2000, true)
         pause(2000)
-        story.spriteSayText(animal_1, "Wood Pigeon", 15, 1, story.TextSpeed.VerySlow)
+        story.spriteSayText(animal_1, "Wood Pigeon!", 15, 1, story.TextSpeed.VerySlow)
+        animals_met += 1
         touched1 = true
     }
 })
@@ -255,23 +257,40 @@ function screen_2 () {
     animal_1.setPosition(21, 200)
     scaling.scaleToPixels(animal_1, 22, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     animal_2 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        .....445...4455....54...eeee.22.
+        ...444455545e.445..455..e.2e52..
+        ..45.474444.5e5.522222ee.225e222
+        ..4..44444444464222264e27626.2ee
+        .55.7554556564472.4424e27c2266e.
+        e4d5.5e45.5555422.44..e2222ee2e.
+        .4.5555455544452226464226622.ee2
+        ..5.5655455.55442444622222266eee
+        ..544564c4..44242262622262d22226
+        ...45..455444422422225222d2c672e
+        ..44554545554554422445222222222e
+        7445444.44.e46442422462222256ee6
+        .45544e4ee.64446246446226266e2e7
+        .4544.d44d2222222264e62226262...
+        ..5544.44.42244ee2ee262266e222ee
+        .54.444.24.242dd224c422ee26ee2ee
+        .54554.2244224dd24424222e26ee22e
+        ..4455.4444224.dd6464eeeeeee22e2
+        ....44444224424446e6ee2.eee22ee6
+        ......74..224.5544e46e.eee.e2ee.
+        ......57..2224222eeeeee..e6eee..
+        ......7....2222.2e2eee.ee.......
+        ............22222e6eee..........
+        ................deeec...........
+        ................deeec...........
+        ...............edeece...........
+        ...............eeeece...........
+        ..............ddeeecce..........
+        ............ddddeeeccc..........
+        .........eeeddee.ececccec.......
+        .......eeee.4ee..ece.cccec......
+        ....eee....e......e...eee.ccee..
         `, SpriteKind.animal2)
+    animal_2.setPosition(328, 280)
     animal_3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -341,9 +360,9 @@ let animal_4: Sprite = null
 let animal_5: Sprite = null
 let animal_3: Sprite = null
 let animal_2: Sprite = null
-let animals_met = 0
 let animal_1: Sprite = null
 let touched1 = false
+let animals_met = 0
 let hero_saitama: Sprite = null
 let snake3: Sprite = null
 let snake2: Sprite = null
