@@ -193,6 +193,20 @@ sprites.onOverlap(SpriteKind.animal2, SpriteKind.Player, function (sprite, other
         touched2 = true
     }
 })
+sprites.onOverlap(SpriteKind.animaal4, SpriteKind.Player, function (sprite, otherSprite) {
+    if (touched4 == false) {
+        animal_4.sayText(":)", 2000, true)
+        pause(2000)
+        animal_4.sayText("I am", 2000, true)
+        pause(2000)
+        animal_4.sayText("A", 2000, true)
+        pause(2000)
+        story.spriteSayText(animal_4, "Cherry Blossom Tree", 15, 1, story.TextSpeed.Slow)
+        story.spriteSayText(animal_4, "Prunus serrulata", 15, 1, story.TextSpeed.VerySlow)
+        animals_met += 1
+        touched4 = true
+    }
+})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (game_mode == 1) {
         if (camel.y == 56) {
@@ -462,25 +476,6 @@ function screen_2 () {
     true
     )
     animal_3.setPosition(580, 18)
-    animal_5 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.animaal5)
-    animal_5.setPosition(328, 280)
     animal_4 = sprites.create(img`
         .....79....797....97..7.....77..
         ..9.99999.977779..799.7..7797...
@@ -515,6 +510,51 @@ function screen_2 () {
         .......eeee.4ee..ece.cccec......
         ....eee....e......e...eee.ccee..
         `, SpriteKind.animaal4)
+    scaling.scaleToPixels(animal_4, 40, ScaleDirection.Uniformly, ScaleAnchor.Middle)
+    animal_4.setPosition(615, 120)
+    animal_5 = sprites.create(img`
+        bbbb........bbbb.................
+        cbbbb......bbbbb.................
+        cbbbbb....bbbbbc.................
+        cbbbbbccccbbbbbc.................
+        cbbbbbbccbbbbbbc.................
+        cb2bbbbbbbbbb2bc.................
+        cb22bbbbbbbb22bc.................
+        cbb2bbbbbbbb2bbc.................
+        cbbbbbbb11bbbbbc.................
+        cbbbffb111bffbbc........bbbbbb...
+        cbbbffb1111ffbbc.......cbbbbbbbb.
+        cbbbb1111111bbbc......cbbbbbbbbb.
+        cbbb1111fff11bbc.....cbbb111bbbbb
+        cbbbc11fff11bbbc.....cbb11111bbbb
+        cbbbcc111111cbbc.....cb11dd111bbb
+        cbbbbbbb22ccbbbcc....cbddbbd11bbc
+        cbbbbbbb22cbbbbbbbccccbbdbbb11bbc
+        cbbbbbbbbbbbbbbbbbbbbbbbbbbb1bbbc
+        cbbbb1111bbbbbbbbbbbbbbbbbbbbbbbc
+        cbbb111111bbbbbbbbbbbbbbbbbbbbbc.
+        cbbb1111111bbbbbbbbbbbbbbbbbbbcc.
+        cbb11111111bbbbbbbbbbbbbbbbbbbc..
+        cbb111111111bbbbbbbbbbbbbbbbbbc..
+        cbb111111111bbbbbbbbbbbbbbbbbbc..
+        .fb111111111bbbbbbbbbbbbbbbbbbc..
+        .ff111111111bbbbbbbbbbbbbbbbbbc..
+        ..fb11111111bbbbbbbbbbbbbbbbbbc..
+        ...fb111111bbbbbbb111111bbbbbbc..
+        ...fbbb1111bbbbbb11111111bbbbbc..
+        ....fbbfffbbbbbccccccccccbbbbbc..
+        ....fbbf..fbbbc.....fbbf.cbbbbc..
+        ....fbbf..fbbbc.....fbbf.ccbbbbc.
+        ....fbbf..fbbc.......fbf..ccbbbc.
+        ....fbbf..fbbc.......fbbf..ccbbc.
+        ....fbbf..fbbc.......fbbf...cbbc.
+        ....fbbf..fbbc......fbbbf...cbbc.
+        ...fbbbf..fbbc......ffff....cbbc.
+        ...fbbf..fbbbc.............cbbbc.
+        ...ffff..fbbcc.............cbbbc.
+        .........fffc..............cccc..
+        `, SpriteKind.animaal5)
+    animal_5.setPosition(839, 40)
     door = sprites.create(assets.image`Door`, SpriteKind.door)
     speed = 0
     door.setPosition(943, 340)
@@ -526,12 +566,12 @@ function screen_2 () {
 let random = 0
 let speed = 0
 let door: Sprite = null
-let animal_4: Sprite = null
 let animal_5: Sprite = null
 let touched_5 = false
-let touched4 = false
 let animal_1: Sprite = null
 let touched1 = false
+let animal_4: Sprite = null
+let touched4 = false
 let animal_2: Sprite = null
 let touched2 = false
 let animals_met = 0
@@ -1140,10 +1180,7 @@ forever(function () {
         animal_3.y = 290
     }
     if (animal_4) {
-        animal_4.y = Math.sin(speed) * 0.5 * 5 + 195
-    }
-    if (animal_5) {
-        animal_5.y = Math.sin(speed) * 0.5 * 5 + 195
+        animal_4.y = 108
     }
     pause(90)
 })
