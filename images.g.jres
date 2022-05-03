@@ -24,11 +24,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage1"
     },
-    "image7": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage2"
-    },
     "image8": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -38,6 +33,11 @@
         "data": "hwQQABAAAAAAAAAAAAAAAADdvN3d293N0N283d3b3c3d3by7u7y7q93d/P//////3d3MzMzMzMzd3fz//////93dzMzM/P//3d38///PzMzd3fz//////93dzMzMzMzM3d38///////d3by7u7y7q9DdvN3d293NAN283d3b3c0AAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Door"
+    },
+    "image7": {
+        "data": "hwQQABAAAAD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "myImage2"
     },
     "anim1": {
         "namespace": "myAnimations",

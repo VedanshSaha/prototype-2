@@ -11,7 +11,8 @@
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "sevenseg": "*",
         "edge-connector": "*",
-        "radio-broadcast": "*"
+        "radio-broadcast": "*",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
     },
     "files": [
         "main.blocks",

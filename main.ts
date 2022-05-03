@@ -129,6 +129,20 @@ sprites.onOverlap(SpriteKind.animaal3, SpriteKind.Player, function (sprite, othe
         touched_3 = true
     }
 })
+sprites.onOverlap(SpriteKind.animaal5, SpriteKind.Player, function (sprite, otherSprite) {
+    if (touched_5 == false) {
+        animal_5.sayText("Met ALL eh?", 2000, true)
+        pause(2000)
+        animal_5.sayText("You know me", 2000, true)
+        pause(2000)
+        animal_1.sayText("Already", 2000, true)
+        pause(2000)
+        story.spriteSayText(animal_5, "WOLF", 15, 1, story.TextSpeed.VerySlow)
+        music.thump.play()
+        animals_met += 1
+        touched_5 = true
+    }
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     console.log(hero_saitama.x)
     console.log(hero_saitama.y)
@@ -358,12 +372,35 @@ function screen_2 () {
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         `)
+    game.setDialogFrame(assets.image`myImage2`)
+    game.setDialogCursor(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . 2 2 2 2 2 . . . . . . . 
+        . . . . 2 5 5 5 5 2 . . . . . . 
+        . . 2 2 2 5 5 5 5 2 2 . . . . . 
+        . . 2 5 5 5 2 2 2 5 2 2 2 . . . 
+        . . 2 5 5 5 2 2 2 2 5 5 2 . . . 
+        . . 2 2 5 5 2 2 2 2 5 5 2 . . . 
+        . 2 2 2 5 2 2 2 2 2 5 2 . . . . 
+        . 2 2 5 5 2 2 2 2 5 5 2 . . . . 
+        . . 2 2 2 5 2 2 2 5 2 2 . . . . 
+        . . . . 2 5 2 2 2 5 2 . . . . . 
+        . . . . 2 5 2 2 2 5 2 . . . . . 
+        . . . . 2 2 2 2 5 5 2 . . . . . 
+        . . . . 2 2 5 5 2 2 2 . . . . . 
+        . . . . . 2 2 2 2 . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+    game.setDialogTextColor(1)
+    game.showLongText("I have to meet pigeon, monkey, lion, cherry blossom and wolf", DialogLayout.Full)
     touched1 = false
     touched2 = false
     touched_3 = false
     touched4 = false
     touched_5 = false
     animals_met = 0
+    rem = textsprite.create("Remaining:" + convertToText(5 - animals_met), 0, 1)
+    rem.setMaxFontHeight(1)
     hero_saitama = sprites.create(img`
         ........................
         .....ffff...............
@@ -555,25 +592,27 @@ function screen_2 () {
         .........fffc..............cccc..
         `, SpriteKind.animaal5)
     animal_5.setPosition(839, 40)
+    scaling.scaleToPixels(animal_5, 18, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     door = sprites.create(assets.image`Door`, SpriteKind.door)
     speed = 0
     door.setPosition(943, 340)
     scaling.scaleToPixels(door, 32, ScaleDirection.Uniformly, ScaleAnchor.Middle)
-    controller.moveSprite(hero_saitama, 50, 100)
+    controller.moveSprite(hero_saitama, 50, 0)
     scene.cameraFollowSprite(hero_saitama)
     hero_saitama.ay = 350
 }
 let random = 0
 let speed = 0
 let door: Sprite = null
-let animal_5: Sprite = null
-let touched_5 = false
-let animal_1: Sprite = null
+let rem: TextSprite = null
 let touched1 = false
 let animal_4: Sprite = null
 let touched4 = false
 let animal_2: Sprite = null
 let touched2 = false
+let animal_1: Sprite = null
+let animal_5: Sprite = null
+let touched_5 = false
 let animals_met = 0
 let animal_3: Sprite = null
 let touched_3 = false
@@ -1190,17 +1229,27 @@ forever(function () {
     if (game_mode == 2) {
         music.playMelody("D C D C D E F G ", 318)
         music.playMelody("C5 B G B C5 G F E ", 151)
+        pause(500)
         music.playMelody("D C D C D E F G ", 318)
         music.playMelody("D C D C D E F G ", 318)
+        pause(1000)
         music.playMelody("A - - F - B - F ", 400)
         music.playMelody("F A E F - B - F ", 400)
         music.playMelody("F - E F - B - C ", 400)
         music.playMelody("C5 B A G F E D C ", 400)
         music.playMelody("C5 G A E F C D E ", 400)
         music.playMelody("E F D F E D E F ", 400)
+        pause(500)
         music.playMelody("F E - F G E - C ", 227)
         music.playMelody("F E - F G E - C ", 227)
         music.playMelody("F E - F G E - C ", 227)
         music.playMelody("F E - F G E - C ", 227)
+        pause(500)
+    }
+})
+forever(function () {
+    if (rem) {
+        rem.setText("Remaining:" + convertToText(5 - animals_met))
+        rem.setPosition(hero_saitama.x, hero_saitama.y - 50)
     }
 })
