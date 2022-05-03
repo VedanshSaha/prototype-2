@@ -114,6 +114,21 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
+sprites.onOverlap(SpriteKind.animaal3, SpriteKind.Player, function (sprite, otherSprite) {
+    if (touched_3 == false) {
+        animal_3.sayText(":)", 2000, true)
+        pause(2000)
+        animal_3.sayText("I am", 2000, true)
+        pause(2000)
+        animal_3.sayText("A", 2000, true)
+        pause(2000)
+        story.spriteSayText(animal_3, "Lion", 15, 1, story.TextSpeed.VerySlow)
+        story.spriteSayText(animal_3, "Have u met monkey?", 15, 1, story.TextSpeed.Slow)
+        story.spriteSayText(animal_3, "Nevermind... continue your journey", 15, 1, story.TextSpeed.Slow)
+        animals_met += 1
+        touched_3 = true
+    }
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     console.log(hero_saitama.x)
     console.log(hero_saitama.y)
@@ -421,7 +436,6 @@ function screen_2 () {
     200,
     true
     )
-    scaling.scaleToPixels(animal_1, 22, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     animal_2.setPosition(328, 280)
     animal_3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -441,6 +455,13 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.animaal3)
+    animation.runImageAnimation(
+    animal_3,
+    assets.animation`myAnim6`,
+    200,
+    true
+    )
+    animal_3.setPosition(580, 18)
     animal_5 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -459,29 +480,46 @@ function screen_2 () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.animaal5)
+    animal_5.setPosition(328, 280)
     animal_4 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        .....79....797....97..7.....77..
+        ..9.99999.977779..799.7..7797...
+        ..93377.969747.766777766779e777.
+        ...1379.73377317677636776763377.
+        99.797.73176777777731767c77137..
+        7e9494777733769967776766677677.7
+        ..73397773777966667676966777677.
+        .9.3197977779917777667677766766.
+        .7777674376767377676677673776767
+        ..733.77777977777713973313767c67
+        ..379799777799777737973777731777
+        799997799.7967777777677777996.66
+        .997777ee7633367767767767667677.
+        .931377777731767767e67776767....
+        .9337377.779777776776776676777.6
+        9..777777.77777773776367767766..
+        9.997...77737777316731767667.66.
+        ..999.7737.77.796367cc667631676.
+        ...7...71377.777676697317773776.
+        .....77....7.9977e7669.7...666..
+        .....97....7799666767..7.6......
+        .....7..........4eeee.6.........
+        ................46ee6...........
+        ................4eeec...........
+        ................4eeec...........
+        ...............e4eece...........
+        ...............eeeece...........
+        ..............44eeecce..........
+        ............444eeeeccc..........
+        .........eee44ee.ececccec.......
+        .......eeee.4ee..ece.cccec......
+        ....eee....e......e...eee.ccee..
         `, SpriteKind.animaal4)
     door = sprites.create(assets.image`Door`, SpriteKind.door)
     speed = 0
     door.setPosition(943, 340)
     scaling.scaleToPixels(door, 32, ScaleDirection.Uniformly, ScaleAnchor.Middle)
-    controller.moveSprite(hero_saitama, 50, 0)
+    controller.moveSprite(hero_saitama, 50, 100)
     scene.cameraFollowSprite(hero_saitama)
     hero_saitama.ay = 350
 }
@@ -490,15 +528,15 @@ let speed = 0
 let door: Sprite = null
 let animal_4: Sprite = null
 let animal_5: Sprite = null
-let animal_3: Sprite = null
 let touched_5 = false
 let touched4 = false
-let touched_3 = false
 let animal_1: Sprite = null
 let touched1 = false
 let animal_2: Sprite = null
 let touched2 = false
 let animals_met = 0
+let animal_3: Sprite = null
+let touched_3 = false
 let hero_saitama: Sprite = null
 let snake3: Sprite = null
 let snake2: Sprite = null
@@ -1099,7 +1137,7 @@ forever(function () {
         animal_2.y = Math.sin(speed) * 0.5 * 5 + 280
     }
     if (animal_3) {
-        animal_3.y = Math.sin(speed) * 0.5 * 5 + 195
+        animal_3.y = 290
     }
     if (animal_4) {
         animal_4.y = Math.sin(speed) * 0.5 * 5 + 195
