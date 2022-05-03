@@ -180,46 +180,8 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 `;
-            case "image5":
-            case "Camel":return img`
-................................
-................................
-..............444.4444..........
-......44.....4444.4444..........
-....44f4.....4444.4444444.......
-....444444..4444444444444.......
-.......444444444444444444.......
-........444444444444444444444...
-..........4444444444444444......
-..........4444444444444444......
-..........444444444444444.......
-...........444444..44444........
-.............4.......4..........
-.............4.......4..........
-.............4.......4..........
-.............4.......4..........
-`;
             case "image6":
             case "myImage1":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`;
-            case "image8":
-            case "myImage3":return img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -256,6 +218,44 @@ dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 . d d b f c f f c f c f b d d . 
 . c c a f c f f c f c f a c c . 
 `;
+            case "image8":
+            case "myImage3":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
+            case "image5":
+            case "Camel":return img`
+................................
+................................
+..............eee.eeee..........
+......ee.....eeee.eeee..........
+....eefe.....eeee.eeeeeee.......
+....eeeeee..eeeeeeeeeeeee.......
+.......eeeeeeeeeeeeeeeeee.......
+........eeeeeeeeeeeeeeeeeeeee...
+..........eeeeeeeeeeeeeeee..ee.e
+..........eeeeeeeeeeeeeeee...ee.
+..........eeeeeeeeeeeeeee.......
+...........eeeeee..eeeee........
+.............e.......e..........
+.............e.......e..........
+.............e.......e..........
+.............e.......e..........
+`;
             case "image7":
             case "myImage2":return img`
 f f f f f f f f f f f f f f f f 
@@ -263,12 +263,12 @@ f f f f f f f f f f f f f f f f
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
+f f f 4 4 4 f f 4 4 f f f f f f 
+f 4 4 4 4 4 4 4 4 4 4 f f 4 4 f 
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+4 4 4 4 4 4 f f 4 4 4 4 4 4 4 4 
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
