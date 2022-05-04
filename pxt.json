@@ -1,5 +1,5 @@
 {
-    "name": "prototype 3.4",
+    "name": "prototype 3.8 copy",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -12,7 +12,11 @@
         "sevenseg": "*",
         "edge-connector": "*",
         "radio-broadcast": "*",
-        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.2",
+        "corgio": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
     },
     "files": [
         "main.blocks",
@@ -23,7 +27,8 @@
         "tilemap.g.ts",
         "main.py",
         "images.g.jres",
-        "images.g.ts"
+        "images.g.ts",
+        null
     ],
     "testFiles": [
         "test.ts"
